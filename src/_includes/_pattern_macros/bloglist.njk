@@ -1,0 +1,15 @@
+{% macro bloglist %}
+
+<ul>
+  {%- for post in collections.post -%}
+    <li>
+      Title: <a href="{{ post.data.link | url }}">{{ post.data.title }}</a><br>
+      Description: {{ post.data.description }}<br>
+      Date: {{ post.data.date }}<br>
+      Author: {{ post.data.author }}<br>
+      Tags: {{ post.data.tags }}
+    </li>
+  {%- endfor -%}
+</ul>
+
+{% endmacro %}

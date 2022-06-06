@@ -9,7 +9,7 @@
 
     {% set rowDefaults = "mt-0 mb-5 g-md-4 g-2" %}
 
-    {% block main %}{% endblock %}
+    {{ content | safe }}
   </main>
   {% include "_static_components/footer.njk" %}
 
