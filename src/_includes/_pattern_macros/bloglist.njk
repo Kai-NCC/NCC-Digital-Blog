@@ -1,7 +1,7 @@
-{% macro bloglist %}
+{% macro bloglist(collection) %}
 
 <ul>
-  {%- for post in collections.post -%}
+  {%- for post in collection -%}
     <li>
       Title: <a href="{{ post.data.link | url }}">{{ post.data.title }}</a><br>
       Description: {{ post.data.description }}<br>

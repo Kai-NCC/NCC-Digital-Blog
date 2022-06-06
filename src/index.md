@@ -3,7 +3,7 @@ layout: template.njk
 title: Home
 ---
 
-
+{% import "_pattern_macros/bloglist.njk" as bloglist %}
 
 <section class="section_stage_theme">
   <div class="container">
@@ -17,16 +17,6 @@ title: Home
     <h2>This is a big header</h2>
     <p>Some random HTML</p>
     BLOG POSTS:
-    <ul>
-      {%- for post in collections.post -%}
-        <li>
-          Title: <a href="{{ post.data.link | url }}">{{ post.data.title }}</a><br>
-          Description: {{ post.data.description }}<br>
-          Date: {{ post.data.date }}<br>
-          Author: {{ post.data.author }}<br>
-          Tags: {{ post.data.tags }}
-        </li>
-      {%- endfor -%}
-    </ul>
+    {{ bloglist.bloglist(collections.post) }}
   </div>
 </section>
