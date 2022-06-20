@@ -1,15 +1,38 @@
-{% macro bloglist(collection) %}
+{#
+Usage: 
+ - give collection name (using tags) e.g. "collections.post", and the number of items you want to display
+ - if you want to show everything, just give 0
+ - if the number you want to show is more than the number of items, then it will just show everything
+#}
+
+{% macro bloglist(collection, maxLength) %}
+
+{% if maxLength > collection.length %}
+  {% set maxLength = collection.length %}
+{% endif%}
 
 <ul>
-  {%- for post in collection -%}
-    <li>
-      Title: <a href="{{ post.data.link | url }}">{{ post.data.title }}</a><br>
-      Description: {{ post.data.description }}<br>
-      Date: {{ post.data.date }}<br>
-      Author: {{ post.data.author }}<br>
-      Tags: {{ post.data.tags }}
-    </li>
-  {%- endfor -%}
+  {% if maxLength <= 0 %}
+    {%- for post in collection -%}
+      <li>
+        Title: <a href="{{ post.data.link | url }}">{{ post.data.title }}</a><br>
+        Description: {{ post.data.description }}<br>
+        Date: {{ post.data.date }}<br>
+        Author: {{ post.data.author }}<br>
+        Tags: {{ post.data.tags }}
+      </li>
+    {%- endfor -%}
+  {% else %}
+    {%- for i in range(0, maxLength) -%}
+      <li>
+        Title: <a href="{{ collection[i].data.link | url }}">{{ collection[i].data.title }}</a><br>
+        Description: {{ collection[i].data.description }}<br>
+        Date: {{ collection[i].data.date }}<br>
+        Author: {{ collection[i].data.author }}<br>
+        Tags: {{ collection[i].data.tags }}
+      </li>
+    {%- endfor -%}
+  {% endif %}
 </ul>
 
 {% endmacro %}

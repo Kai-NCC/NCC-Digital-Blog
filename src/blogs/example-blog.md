@@ -1,7 +1,7 @@
 ---
 layout: template.njk
 title: Example blog page
-link: 'example-blog/'
+link: 'blogs/example-blog'
 description: This is an example blog page written using Markdown.
 date: 2022-06-05
 author: Kai

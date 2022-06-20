@@ -17,6 +17,8 @@ title: Home
     <h2>This is a big header</h2>
     <p>Some random HTML</p>
     BLOG POSTS:
-    {{ bloglist.bloglist(collections.post) }}
+    {{ bloglist.bloglist(collections.post, 4) }}
   </div>
 </section>
+
+<a href="{{ 'blogs/blog-posts' | url }}">View all blog posts</a>
