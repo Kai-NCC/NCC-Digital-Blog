@@ -21,4 +21,4 @@ title: Home
   </div>
 </section>
 
-<a href="{{ 'blogs/blog-posts' | url }}">View all blog posts</a>
+<a href="{{ 'blogs/blog-posts' | url }}">View all blog posts (pagination test)</a>
