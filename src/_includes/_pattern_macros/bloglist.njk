@@ -1,5 +1,12 @@
 {% macro bloglist(collection, maxLength) %}
 
+{#
+Usage: 
+ - give collection name (using tags) e.g. "collections.post", and the number of items you want to display
+ - if you want to show everything, just give 0
+ - if the number you want to show is more than the number of items, then it will just show everything
+#}
+
 {% if maxLength > collection.length %}
   {% set maxLength = collection.length %}
 {% endif%}
