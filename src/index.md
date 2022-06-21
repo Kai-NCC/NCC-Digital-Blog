@@ -3,7 +3,7 @@ layout: template.njk
 title: Home
 ---
 
-{% import "_pattern_macros/bloglist.njk" as bloglist %}
+{%- import "_pattern_macros/bloglist.njk" as bloglist -%}
 
 <section class="section_stage_theme">
   <div class="container">
