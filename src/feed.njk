@@ -1,0 +1,14 @@
+---
+permalink: '/test-feed.json'
+---
+
+{
+  "blogs": [
+    {% for item in collections.posts %}
+      {
+        "title": "{{ item.data.title }}",
+        "url": "{{ item.url }}"
+      }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}

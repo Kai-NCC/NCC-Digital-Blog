@@ -1,6 +1,8 @@
 ---
 layout: template.njk
 title: Home
+
+
 ---
 
 {% import "_pattern_macros/bloglist.njk" as bloglist %}
@@ -21,4 +23,12 @@ title: Home
   </div>
 </section>
 
-<a href="{{ 'blogs/blog-posts' | url }}">View all blog posts (pagination test)</a>
+<div class="container">
+  <a href="{{ 'blogs/blog-posts' | url }}">View all blog posts (pagination test)</a>
+  <h3 class="mt-4">JSON testing:</h3>
+  <ul>
+      {% for jpost in jsonPosts.posts -%}
+      <li><a href="{{ jpost.url | url }}">{{ jpost.title }}</a></li>
+      {% endfor -%}
+  </ul>
+</div>
